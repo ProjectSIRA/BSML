@@ -1,17 +1,16 @@
-{
+﻿{
   "$schema": "https://raw.githubusercontent.com/beat-saber-modding-group/BSIPA-MetadataFileSchema/master/Schema.json",
-  "author": "monkeymanboy",
+  "author": "monkeymanboy and SIRA",
   "description": [
-    "#![BeatSaberMarkupLanguage.Resources.description.md]",
     "An XML based UI system."
   ],
-  "gameVersion": "1.16.1",
-  "icon": "BeatSaberMarkupLanguage.Resources.icon.png",
+  "gameVersion": "1.16.2",
   "id": "BeatSaberMarkupLanguage",
   "name": "BeatSaberMarkupLanguage",
-  "version": "1.5.3",
+  "version": "2.0.0-alpha",
   "dependsOn": {
-    "BSIPA": "^4.1.6"
+    "BSIPA": "^4.1.6",
+    "SiraUtil": "^3.0.0"
   },
   "links": {
     "project-home": "https://github.com/monkeymanboy/BeatSaberMarkupLanguage",
