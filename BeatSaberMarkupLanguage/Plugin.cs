@@ -5,7 +5,7 @@ using IPALogger = IPA.Logging.Logger;
 namespace BeatSaberMarkupLanguage
 {
     [Plugin(RuntimeOptions.DynamicInit)]
-    public class Plugin
+    internal class Plugin
     {
         [Init]
         public Plugin(IPALogger logger, Zenjector zenjector)

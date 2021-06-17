@@ -35,6 +35,10 @@
         <DisableZipRelease>True</DisableZipRelease>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <DocumentationFile>bin\Debug\BeatSaberMarkupLanguage.xml</DocumentationFile>
+    </PropertyGroup>
+
     <ItemGroup>
         <Reference Include="Hive.Versioning">
           <HintPath>$(BeatSaberDir)\Libs\Hive.Versioning.dll</HintPath>
