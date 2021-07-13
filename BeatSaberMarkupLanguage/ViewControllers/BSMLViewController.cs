@@ -14,15 +14,13 @@ namespace BeatSaberMarkupLanguage.ViewControllers
     /// </summary>
     public abstract class BSMLViewController : ViewController, INotifyPropertyChanged
     {
-        private static readonly FieldAccessor<BSMLViewController, IBSMLParser>.Accessor BSMLVC_Parser = FieldAccessor<BSMLViewController, IBSMLParser>.GetAccessor(nameof(_bsmlParser)); 
-
         [Inject]
         internal readonly SiraLog _bsmlSiraLog = null!;
 
         /// <summary>
         /// The parser for this view controller.
         /// </summary>
-        protected readonly IBSMLParser _bsmlParser = null!;
+        protected internal IBSMLParser _bsmlParser = null!;
 
         /// <inheritdoc />
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -36,8 +34,7 @@ namespace BeatSaberMarkupLanguage.ViewControllers
             if (bsmlParser is null)
                 throw new ArgumentNullException(nameof(bsmlParser));
 
-            BSMLViewController self = this;
-            BSMLVC_Parser(ref self) = bsmlParser;
+            _bsmlParser = bsmlParser;
         }
 
         /// <summary>
