@@ -1,5 +1,6 @@
 ﻿using BeatSaberMarkupLanguage.Parsing.Building;
 using HMUI;
+using SiraUtil.Logging;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,12 @@ namespace BeatSaberMarkupLanguage.Tags
     {
         /// <inheritdoc />
         public override IEnumerable<string> Aliases => new string[] { "text", "label" };
+        private readonly SiraLog _siraLog;
+
+        internal TextTag(SiraLog siraLog)
+        {
+            _siraLog = siraLog;
+        }
 
         /// <summary>
         /// Generates a new text builder.

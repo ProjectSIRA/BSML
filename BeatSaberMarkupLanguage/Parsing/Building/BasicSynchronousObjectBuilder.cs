@@ -31,7 +31,7 @@ namespace BeatSaberMarkupLanguage.Parsing.Building
         {
             _result = _buildAction.Invoke(_parent);
             Completed = true;
-            return Task.CompletedTask;
+            return new Task(() => { });
         }
 
         /// <inheritdoc />
