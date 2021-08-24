@@ -29,12 +29,11 @@ namespace BeatSaberMarkupLanguage.Parsing
         /// <inheritdoc />
         public Task Parse(string content, GameObject root, object? host = null)
         {
-            _siraLog.Info("parsing");
+            _siraLog.Debug("Starting synchronous parsing of BSML.");
             XmlDocument document = new();
-            _siraLog.Info("creating document");
             document.Load(XmlReader.Create(new StringReader(content), _xmlReaderSettings));
 
-            _siraLog.Info("handling nodes");
+            _siraLog.Debug("Starting node handling.");
             foreach (XmlNode node in document)
                 HandleNode(node, root);
 
@@ -43,26 +42,24 @@ namespace BeatSaberMarkupLanguage.Parsing
 
         private Task HandleNode(XmlNode node, GameObject parent)
         {
-            _siraLog.Info("checking if exists");
             if (!_tags.TryGetValue(node.Name, out BSMLTag tag))
             {
                 throw new Exception("Tag type '" + node.Name + "' not found.");
             }
 
-            _siraLog.Info("fetching builder");
+            _siraLog.Debug($"Constructing tag '{node.Name}'");
             var builder = tag.GetBuilder(parent.transform);
             while (!builder.Completed)
                 builder.Next().RunSynchronously();
 
-            _siraLog.Info("completed");
+            _siraLog.Debug($"Completed parsing of '{node.Name}'");
             GameObject active = builder.GetResult()!;
-            _siraLog.Info("looking at child nodes");
             foreach (XmlNode child in node.ChildNodes)
             {
+                _siraLog.Debug($"Processing child node: '{child.Name}'");
                 HandleNode(child, active);
             }
 
-            _siraLog.Info("yep");
             return Task.CompletedTask;
         }
     }
