@@ -4,7 +4,7 @@
   "description": [
     "An XML based UI system."
   ],
-  "gameVersion": "1.16.2",
+  "gameVersion": "1.16.4",
   "id": "BeatSaberMarkupLanguage",
   "name": "BeatSaberMarkupLanguage",
   "version": "2.0.0-alpha",
